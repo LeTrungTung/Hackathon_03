@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+.container {
+  background-color: #f1b710;
+  height: 100%;
+}
+.Navbar.Brand {
+  color: white;
+}
+#id-note {
+  position: relative;
+}
+#btn-plus {
+  position: absolute;
+  top: 170px;
+  left: 58%;
+  border-radius: 50%;
+}
