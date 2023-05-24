@@ -23,6 +23,7 @@ function AddToDo(props) {
   return (
     <>
       <Form onSubmit={handleSubmit}>
+        <Form.Control name="id" id="id" value={formData?.id} hidden />
         <FloatingLabel controlId="floatingTextarea2">
           <Form.Control
             placeholder="Take a note..."
@@ -42,7 +43,7 @@ function AddToDo(props) {
           variant="warning"
           id="btn-plus"
           type="submit"
-          onClick={() => props.handleAdd(text, "Đang thực hiện")}
+          onClick={() => props.handleAddNote("edit", item.id)}
         >
           +
         </Button>

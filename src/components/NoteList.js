@@ -1,6 +1,6 @@
 import { Button, Table } from "react-bootstrap";
 
-function NoteList() {
+function NoteList(props) {
   return (
     <Table responsive="sm">
       <thead>
@@ -12,19 +12,30 @@ function NoteList() {
         </tr>
       </thead>
       <tbody style={{ backgroundColor: "white" }}>
-        <tr>
-          <td>1</td>
-          <td>Làm Bài tập nhà</td>
-          <td>Đang thực hiện</td>
-          <td>
-            <Button className="me-1 btn-primary" onClick={() => {}}>
-              Edit
-            </Button>{" "}
-            <Button className="btn-danger" onClick={() => {}}>
-              Delete
-            </Button>
-          </td>
-        </tr>
+        {props.noteToDo &&
+          props.noteToDo.map((item, index) => (
+            <tr key={item.id}>
+              <td>{index + 1}</td>
+              <td>{item.name}</td>
+              <td>
+                {item.status ? "Đã hoàn thành" : "Chưa hoàn thành"}
+              </td>
+              <td>
+                <Button
+                  className="me-1 btn-primary"
+                  onClick={() => props.handleAddNote("edit", item.id)}
+                >
+                  Edit
+                </Button>{" "}
+                <Button
+                  className="btn-danger"
+                  //   onClick={() => props.onDeleteData(item.id)}
+                >
+                  Delete
+                </Button>
+              </td>
+            </tr>
+          ))}
       </tbody>
     </Table>
   );
